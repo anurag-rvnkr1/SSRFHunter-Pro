@@ -1,0 +1,36 @@
+# SSRFHunter Pro Scan Report
+
+Generated at {{ generated_at }}
+
+## Executive Summary
+
+- **Target:** {{ result.summary.target }}
+- **Duration:** {{ result.summary.duration_seconds }}s
+- **Findings:** {{ result.summary.statistics.findings }}
+
+## Statistics
+
+| Metric | Value |
+|---|---|
+| URLs tested | {{ result.summary.statistics.urls_tested }} |
+| Findings | {{ result.summary.statistics.findings }} |
+| Payload categories | {{ result.summary.statistics.payload_categories }} |
+
+## Findings
+
+{% if result.findings %}
+{% for finding in result.findings %}
+### {{ finding.title }}
+- **Severity:** {{ finding.severity }}
+- **URL:** {{ finding.url }}
+- **Evidence:**
+
+```text
+{{ finding.evidence }}
+```
+- **Description:** {{ finding.description }}
+
+{% endfor %}
+{% else %}
+No findings were detected.
+{% endif %}
