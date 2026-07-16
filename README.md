@@ -1,87 +1,152 @@
-# SSRFHunter Pro
+<div align="center">
 
-SSRFHunter Pro is an enterprise-grade SSRF security assessment framework designed for authorized security testing, penetration testing with permission, security research, and education.
+# 🛡️ SSRFHunter Pro
 
-![SSRFHunter Pro](screenshots/placeholder.svg)
+### Enterprise-Grade SSRF Security Assessment Framework
 
-## Features
+*A fast, modular, asynchronous framework for **authorized SSRF security assessments**, built for security researchers, penetration testers, and application security engineers.*
 
-- Asynchronous scanning engine with worker pools, timeouts, and retries
-- Intelligent crawler for HTML links, forms, JSON APIs, OpenAPI/Swagger, robots.txt, and sitemap discovery
-- URL parameter enumeration and form submission discovery
-- Configurable YAML-driven payload library for localhost, metadata, internal network, and protocol-specific checks
-- Response analysis with severity scoring and evidence extraction
-- Rich HTML, JSON, and Markdown reporting
-- SQLite-backed scan history and persistence
-- Docker-ready deployment and GitHub Actions CI
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![AsyncIO](https://img.shields.io/badge/AsyncIO-Enabled-5A5A5A?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
-## Architecture
+</div>
 
-```mermaid
-flowchart TD
-  CLI --> Config
-  Config --> Scanner
-  Scanner --> Crawler
-  Scanner --> Requester
-  Crawler --> Parser
-  Requester --> Detection
-  Detection --> Reporting
-  Detection --> Database
+---
+
+## 🚀 Overview
+
+**SSRFHunter Pro** is a high-performance **Python-based SSRF Security Assessment Framework** designed for **authorized security testing**, application security reviews, and cybersecurity research.
+
+Built with an asynchronous architecture, it combines intelligent crawling, configurable payload management, response analysis, and professional reporting into a single, extensible framework.
+
+---
+
+## ✨ Key Features
+
+- ⚡ High-performance asynchronous scanning engine
+- 🕸️ Intelligent website & API crawler
+- 🔍 URL parameter & HTML form discovery
+- 📄 OpenAPI / Swagger support
+- 📦 YAML-based payload management
+- 🧠 Automated response analysis & risk classification
+- 📊 Professional HTML, JSON & Markdown reports
+- 🗄️ SQLite scan history
+- 🎨 Rich interactive CLI
+- 🐳 Docker support
+- ✅ CI/CD ready architecture
+
+---
+
+## 🏗️ Architecture
+
+```text
+CLI
+ │
+ ▼
+Configuration
+ │
+ ▼
+Crawler ───► Scanner Engine
+ │              │
+ ▼              ▼
+Parser      Response Analysis
+ │              │
+ └──────────────┤
+                ▼
+        Report Generator
+                │
+                ▼
+          SQLite Database
 ```
 
-## Installation
+---
+
+## ⚙️ Installation
 
 ```bash
+git clone https://github.com/anurag-rvnkr1/SSRFHunter-Pro.git
+
+cd SSRFHunter-Pro
+
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install --upgrade pip
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+
 pip install -r requirements.txt
 pip install -e .
 ```
 
-## Quick Start
+---
+
+## 🚀 Quick Start
 
 ```bash
-ssrfhunter scan --url https://example.test --workers 8 --timeout 10 --html --json
+ssrfhunter scan \
+  --url https://example.test \
+  --workers 10 \
+  --timeout 15 \
+  --html \
+  --json
 ```
 
-## CLI Examples
+---
 
-```bash
-ssrfhunter crawl --url https://example.test --max-depth 3
-ssrfhunter scan --url https://example.test --workers 6 --timeout 15 --output reports --html
-ssrfhunter history --limit 5
-ssrfhunter report --scan-id 1 --html
+## 📁 Project Structure
+
+```text
+ssrfhunter/
+├── cli/
+├── scanner/
+├── crawler/
+├── detection/
+├── reporting/
+├── database/
+├── payloads/
+├── core/
+└── utils/
 ```
 
-## Configuration
+---
 
-The framework supports optional YAML configuration via `config.yml` in the repository root. CLI flags always override configuration file values.
-
-## Examples
-
-- `examples/config.yml` — sample runtime configuration.
-- `examples/targets.txt` — sample multi-target scan list.
-
-## Development
+## 🧪 Development
 
 ```bash
 pytest
+
 ruff check .
+
 black .
+
 mypy ssrfhunter
 ```
 
-## Docker
+---
+
+## 🐳 Docker
 
 ```bash
 docker compose up --build
 ```
 
-## Contributing
+---
 
-See `CONTRIBUTING.md` for contribution and code review guidance.
+## 📜 Disclaimer
 
-## License
+> **SSRFHunter Pro is intended solely for systems you own or have explicit authorization to assess. Users are responsible for ensuring compliance with applicable laws, policies, and contractual obligations.**
 
-MIT
+---
+
+<div align="center">
+
+### ⭐ If you find this project useful, consider giving it a Star!
+
+**Built with ❤️ for the Cybersecurity Community**
+
+</div>
