@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ SSRFHunter Pro
+# 🛡️ SSRF-Hunter Pro
 
 ### Enterprise-Grade SSRF Security Assessment Framework
 
@@ -147,6 +147,5 @@ docker compose up --build
 
 ### ⭐ If you find this project useful, consider giving it a Star!
 
-**Built with ❤️ for the Cybersecurity Community**
 
 </div>
