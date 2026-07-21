@@ -12,7 +12,6 @@ This project is developed for **authorized security assessments, security resear
 |:--------:|:---------:|
 | Latest Release | ✅ Yes |
 | Development Branch | ✅ Active |
-| Older Versions | ❌ No |
 
 ---
 
