@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSRFHunter Pro Scan Report</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #222; background: #f7f7f7; }
+      .container { max-width: 960px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+      .header { border-bottom: 1px solid #e6e6e6; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+      h1 { margin: 0; }
+      .section { margin-bottom: 1.5rem; }
+      .severity { display: inline-flex; padding: 0.2rem 0.6rem; border-radius: 999px; background: #ffe8e8; color: #a83333; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+      th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid #e6e6e6; }
+      th { background: #f3f3f3; }
+      pre { background: #f3f3f3; padding: 1rem; border-radius: 6px; overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>SSRFHunter Pro Scan Report</h1>
+        <p>Generated at {{ generated_at }}</p>
+      </div>
+      <div class="section">
+        <h2>Executive Summary</h2>
+        <p>Scan target: <strong>{{ result.summary.target }}</strong></p>
+        <p>Duration: <strong>{{ result.summary.duration_seconds }}s</strong></p>
+        <p>Findings: <strong>{{ result.summary.statistics.findings }}</strong></p>
+      </div>
+      <div class="section">
+        <h2>Statistics</h2>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>URLs tested</td><td>{{ result.summary.statistics.urls_tested }}</td></tr>
+          <tr><td>Findings</td><td>{{ result.summary.statistics.findings }}</td></tr>
+          <tr><td>Payload categories</td><td>{{ result.summary.statistics.payload_categories }}</td></tr>
+        </table>
+      </div>
+      <div class="section">
+        <h2>Findings</h2>
+        {% if result.findings %}
+        <table>
+          <tr><th>Severity</th><th>Title</th><th>URL</th><th>Evidence</th></tr>
+          {% for finding in result.findings %}
+          <tr>
+            <td><span class="severity">{{ finding.severity }}</span></td>
+            <td>{{ finding.title }}</td>
+            <td>{{ finding.url }}</td>
+            <td><pre>{{ finding.evidence }}</pre></td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>No findings were detected for this scan.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
