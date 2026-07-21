@@ -1,0 +1,7 @@
+services:
+  ssrfhunter:
+    build: .
+    image: ssrfhunter-pro:latest
+    command: ["scan", "--help"]
+    volumes:
+      - .:/app

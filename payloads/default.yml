@@ -1,0 +1,12 @@
+basic:
+  - http://127.0.0.1
+  - https://127.0.0.1
+localhost:
+  - http://localhost
+  - https://localhost
+cloud metadata:
+  - http://169.254.169.254/latest/meta-data/
+internal network:
+  - http://10.0.0.1
+protocol-specific:
+  - http://127.0.0.1
